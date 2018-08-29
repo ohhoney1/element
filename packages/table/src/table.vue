@@ -45,16 +45,17 @@
            width: bodyWidth
         }">
       </table-body>
-      <div
-        v-if="!data || data.length === 0"
-        class="el-table__empty-block"
-        ref="emptyBlock"
-        :style="{
-          width: bodyWidth
-        }">
-        <span class="el-table__empty-text">
-          <slot name="empty">{{ emptyText || t('el.table.emptyText') }}</slot>
-        </span>
+      <div v-if="!data || data.length === 0" class="el-table__empty-wrapper">
+        <div
+          class="el-table__empty-block"
+          ref="emptyBlock"
+          :style="{
+            width: bodyWidth
+          }">
+          <span class="el-table__empty-text">
+            <slot name="empty">{{ emptyText || t('el.table.emptyText') }}</slot>
+          </span>
+        </div>
       </div>
       <div
         v-if="$slots.append"
